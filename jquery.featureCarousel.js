@@ -591,7 +591,7 @@
         // pause the rotation?
         if (options.pauseOnHover) setTimer(true);
         // stop the rotation?
-        if (options.stopOnHover) options.autoPlay = 0;
+        if (options.stopOnHover) options.autoPlay = 1;
       })
       .mouseout(function () {
         if (pluginData.currentlyMoving == false) {
@@ -711,7 +711,7 @@
     carouselSpeed:        1000,
     // time in milliseconds to set interval to autorotate the carousel
     // set to zero to disable it, negative to go left
-    autoPlay:             0,
+    autoPlay:             false,
     // with autoplay enabled, set this option to true to have the carousel pause rotating
     // when a user hovers over any feature
     pauseOnHover:         true,
