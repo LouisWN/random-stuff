@@ -19,7 +19,7 @@
       });
       return this;
     }
-    
+
     // override the default options with user defined options
     options = $.extend({}, $.fn.featureCarousel.defaults, options || {});
 
@@ -58,7 +58,7 @@
         var totalImages = $imageElements.length;
 
         $imageElements.each(function (index, element) {
-          // Attempt to load the images					
+          // Attempt to load the images
 					var img = new Image();
           $(img).bind('load error', function () {
             // Add to number of images loaded and see if they are all done yet
@@ -68,7 +68,7 @@
               callback();
             }
           });
-					
+
 					img.src = element.src;
         });
       } else {
@@ -190,7 +190,7 @@
         .find(".carousel-image").css({
           'width': pluginData.smallFeatureWidth
         });
-        
+
       // set position to relative of captions if displaying below image
       if (options.captionBelow) {
         pluginData.featuresContainer.find('.carousel-caption').css('position','relative');
@@ -284,7 +284,7 @@
         $(pluginData.containerIDTag).append($list);
         $list.hide().show();
       }
-      
+
       if (options.trackerSummation) {
         // Build the tracker div that will hold the tracking data
         var $tracker = $('<div></div>');
@@ -312,7 +312,7 @@
         $oldCenter.removeClass("tracker-individual-blip-selected");
         $newCenter.addClass("tracker-individual-blip-selected");
       }
-      
+
       if (options.trackerSummation) {
         var $trackerContainer = pluginData.featuresContainer.find('.tracker-summation-container');
         $trackerContainer.find('.tracker-summation-current').text(newCenter);
@@ -332,7 +332,7 @@
       if (!stop && options.autoPlay != 0) {
         var autoTime = (Math.abs(options.autoPlay) < options.carouselSpeed) ? options.carouselSpeed : Math.abs(options.autoPlay);
         pluginData.timeoutVar = setTimeout(function () {
-          (options.autoPlay > 0) ? initiateMove(true,1) : initiateMove(false,1);
+          (options.autoPlay > 0) ? initiateMove(false,1) : initiateMove(false,1);
         }, autoTime);
       }
     }
@@ -367,7 +367,7 @@
         newPosition = getPreviousNum(oldPosition);
       else
         newPosition = getNextNum(oldPosition);
-        
+
       // callback for moving out of center pos
       if (oldPosition == 1) {
         options.leavingCenter($feature);
@@ -463,7 +463,7 @@
               if (pluginData.rotationsRemaining > 0)
                 move(direction);
             }
-            
+
             // reset timer and auto rotate again
             setTimer(false);
           }
@@ -656,9 +656,9 @@
       }
 
     });
-    
+
     /****************
-     PUBLIC FUNCTIONS 
+     PUBLIC FUNCTIONS
      ****************/
     this.initialize = function () {
       // Call the preloader and pass in our callback, which is just a slew of function calls
@@ -670,10 +670,10 @@
         setupTrackers();
         initiateMove(true,1);
       });
- 
+
       return this;
     };
-    
+
     this.next = function() {
       initiateMove(true, 1);
     }
@@ -686,11 +686,11 @@
     this.start = function () {
       setTimer(false);
     }
-   
+
     // Initialize the plugin
     return this.initialize();
   };
-  
+
   $.fn.featureCarousel.defaults = {
     // If zero, take original width and height of image
     // If between 0 and 1, multiply by original width and height (acts as a percentage)
@@ -718,7 +718,7 @@
     // with autoplay enabled, set this option to completely stop the autorotate functionality
     // when a user hovers over any feature
     stopOnHover:          false,
-    // numbered blips can appear and be used to track the currently centered feature, as well as 
+    // numbered blips can appear and be used to track the currently centered feature, as well as
     // allow the user to click a number to move to that feature. Set to false to not process these at all
     // and true to process and display them
     trackerIndividual:    true,
@@ -746,5 +746,5 @@
     // callback function for when center feature was clicked
     clickedCenter:        $.noop
   };
-  
+
 })(jQuery);
