@@ -329,7 +329,7 @@
       clearTimeout(pluginData.timeoutVar);
 
       // set interval for moving if autoplay is set
-      if (!stop && options.autoPlay != 0) {
+      if (!stop && options.autoPlay != true) {
         var autoTime = (Math.abs(options.autoPlay) < options.carouselSpeed) ? options.carouselSpeed : Math.abs(options.autoPlay);
         pluginData.timeoutVar = setTimeout(function () {
           (options.autoPlay > 0) ? initiateMove(true,1) : initiateMove(false,1);
